@@ -1,2 +1,2 @@
 # jobnik
-Creating and analyzing job posts
+Creating job posts database and data
