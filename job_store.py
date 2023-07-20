@@ -1,4 +1,28 @@
+from dataclasses import dataclass
+from typing import List
+from enum import Enum
+
 from jobnik import Job, JobRequirements
+from util import normalize_title
+
+
+class Education(Enum):
+    HIGH_SCHOOL = 1
+    BACHELORS = 2
+    MASTERS = 3
+    DOCTORATE = 4
+
+
+@dataclass
+class SearchCriteria:
+    title: str
+    education: Education
+    years_of_experience_low: int
+    years_of_experience_hi: int
+    tools: List[str]
+    location: str
+    salary_low: int
+    salary_hi: int
 
 
 class JobStore:
@@ -9,8 +33,38 @@ class JobStore:
         assert isinstance(job, Job)
         self.jobs.append(job)
 
-    def lookup(self, title):
-        return [job for job in self.jobs if title.lower().strip() in job.normalize_title]
+    def lookup_by_title(self, title):
+        return [job for job in self.jobs if title.lower().strip() in job.normalized_title]
+
+    def _match(self, job: Job, criteria: SearchCriteria) -> bool:
+        """return True if the job matches the criteria, otherwise False"""
+        if criteria.title and job.normalized_title != normalize_title(criteria.title):
+            return False
+        if criteria.education and job.normalized_title != normalize_title(criteria.title):
+            return False
+        education: Education
+        years_of_experience_low: int
+        years_of_experience_hi: int
+        tools: List[str]
+        location: str
+        salary_low: int
+        salary_hi: int
+
+
+    def search(self, criteria: SearchCriteria):
+        assert isinstance(criteria, SearchCriteria)
+
+
+
+        title: str
+        education: Education
+        years_of_experience_low: int
+        years_of_experience_hi: int
+        tools: List[str]
+        location: str
+        salary_low: int
+        salary_hi: int
+
 
 
 if __name__ == '__main__':
@@ -20,6 +74,6 @@ if __name__ == '__main__':
     js = JobStore()
     js.add_job(job1)
     js.add_job(job2)
-    jobs = js.lookup('data ')
+    jobs = js.lookup_by_title('data ')
     print(jobs)
-    #print(f'{job1}{job2}')
+    # print(f'{job1}{job2}')
