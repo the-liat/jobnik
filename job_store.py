@@ -1,16 +1,8 @@
 from dataclasses import dataclass
 from typing import List
-from enum import Enum
 
-from jobnik import Job, JobRequirements
+from domain import Job, JobRequirements, Education
 from util import normalize_title
-
-
-class Education(Enum):
-    HIGH_SCHOOL = 1
-    BACHELORS = 2
-    MASTERS = 3
-    DOCTORATE = 4
 
 
 @dataclass
@@ -50,11 +42,8 @@ class JobStore:
         salary_low: int
         salary_hi: int
 
-
     def search(self, criteria: SearchCriteria):
         assert isinstance(criteria, SearchCriteria)
-
-
 
         title: str
         education: Education
@@ -64,7 +53,6 @@ class JobStore:
         location: str
         salary_low: int
         salary_hi: int
-
 
 
 if __name__ == '__main__':
