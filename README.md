@@ -26,9 +26,34 @@ To set up a virtual environment for the project type this in a terminal window:
 
 ## Windows
 
-Install pyenv-win and poetry:
-- [pyenv-win](https://github.com/pyenv-win/pyenv-win)
-- [poetry](https://python-poetry.org/docs/#installation)
+### Install pyenv-win
+
+In a PowerShell window type:
+
+```
+Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+```
+
+If you run into problems check out:
+https://github.com/pyenv-win/pyenv-win#installation
+
+### Install Poetry
+
+In a PowerShell window type:
+```
+(Invoke-WebRequest -Uri https://install.python-poetry.org -UseBasicParsing).Content | python -
+
+```
+
+If you run into problems check out:
+https://python-poetry.org/docs/#installation
+
+
+### Add poetry to the Windows path
+
+Add the following directory to the PATH environment variable `%APPDATA%\Python\Scripts`
+
+### Set up virtual environment
 
 To set up a virtual environment for the project type this in a PowerShell window:
 ```
