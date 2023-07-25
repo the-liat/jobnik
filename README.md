@@ -31,7 +31,10 @@ To set up a virtual environment for the project type this in a terminal window:
 In a PowerShell window type:
 
 ```
-Invoke-WebRequest -UseBasicParsing -Uri "https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1" -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
+script_uri="https://raw.githubusercontent.com/pyenv-win/pyenv-win/master/pyenv-win/install-pyenv-win.ps1"
+Invoke-WebRequest -UseBasicParsing `
+                  -Uri  $script_uri `
+                  -OutFile "./install-pyenv-win.ps1"; &"./install-pyenv-win.ps1"
 ```
 
 If you run into problems check out:
