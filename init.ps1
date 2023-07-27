@@ -1,4 +1,4 @@
-$VERSION = "3.10.5"
+$VERSION = "3.11.4"
 pyenv install $VERSION
 pyenv local $VERSION
 poetry init
