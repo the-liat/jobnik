@@ -30,12 +30,15 @@ class JobRequirements:
 
 
 class Job:
-    def __init__(self, title='', requirements='', location='', salary=0, desc='', company=''):
+    def __init__(self, title: str, requirements, location='', salary=0, desc='', company=''):
         assert isinstance(title, str)
         assert isinstance(requirements, JobRequirements)
         self.raw_title = title
+        self.requirements = requirements
+        self.location = location
         self.salary = salary
         self.desc = desc
+        self.company = company
 
     def __repr__(self):
         return f'title: {self.raw_title}\n' \

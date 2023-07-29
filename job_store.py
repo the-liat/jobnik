@@ -45,14 +45,14 @@ class JobStore:
     def search(self, criteria: SearchCriteria):
         assert isinstance(criteria, SearchCriteria)
 
-        title: str
+        """title: str
         education: Education
         years_of_experience_low: int
         years_of_experience_hi: int
         tools: List[str]
         location: str
         salary_low: int
-        salary_hi: int
+        salary_hi: int"""
 
 
 if __name__ == '__main__':
