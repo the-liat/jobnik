@@ -1,4 +1,5 @@
-from job_center.domain import Job, JobRequirements
+from urllib.parse import quote_plus
+
 from job_center.job_store import JobStore
 
 
@@ -8,8 +9,11 @@ class IndeedIngestor:
         self.job_store = job_store
 
     def construct_url(self, what, where):
-        """TO DO: convert space to + and commas to %2C"""
-        return f'{self.base_url}?q={what}&l={where}'
+        """convert space to + and commas to %2C"""
+        what = quote_plus(what)
+        where = quote_plus(where)
+        url = f'{self.base_url}?q={what}&l={where}'
+        return url
 
     def ingest(self, what, where):
         """get what job descriptors - title, tools, programing lang etc.

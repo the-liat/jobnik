@@ -1,6 +1,6 @@
 from enum import Enum
 
-from util import normalize_title
+from .util import normalize_title
 
 
 class Education(Enum):

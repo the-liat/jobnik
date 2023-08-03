@@ -1,8 +1,8 @@
 from dataclasses import dataclass
 from typing import List
 
-from domain import Job, JobRequirements, Education
-from util import normalize_title
+from .domain import Job, JobRequirements, Education
+from .util import normalize_title
 
 
 @dataclass
