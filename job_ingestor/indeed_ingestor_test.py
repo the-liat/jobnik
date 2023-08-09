@@ -18,3 +18,10 @@ class IndeedIngestorTest(unittest.TestCase):
         expected_url = "https://www.indeed.com/jobs?q=lead%3Bscience&l=Davis%2C+CA"
         url = self.indeed_ing.construct_url(what, where)
         self.assertEqual(url, expected_url)
+
+    def test_ingest(self):
+        """testing getting data from url"""
+        what = "lead;science"
+        where = "Davis, CA"
+        data = self.indeed_ing.ingest(what, where)
+        print(data)

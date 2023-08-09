@@ -1,3 +1,4 @@
+import requests
 from urllib.parse import quote_plus
 
 from job_center.job_store import JobStore
@@ -20,4 +21,6 @@ class IndeedIngestor:
         and get where - location of job like remote or San Fran.
         build the URL with these filters
         """
-        url = construct_url(what, where)
+        url = self.construct_url(what, where)
+        data = requests.get(url)
+        return data
