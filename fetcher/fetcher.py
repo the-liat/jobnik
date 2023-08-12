@@ -1,5 +1,3 @@
-import json
-
 import bs4
 from selenium import webdriver
 
@@ -7,7 +5,7 @@ from selenium import webdriver
 class Fetcher:
     def __init__(self):
         """ """
-        self.driver = webdriver.Firefox()
+        self.driver = webdriver.Chrome()
 
     def _fetch_page_source(self, url):
         try:
