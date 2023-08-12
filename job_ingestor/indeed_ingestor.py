@@ -55,7 +55,8 @@ def main():
     # lines = mosaic_data.text.split('\n')
     # job_cards_line = [line for line in lines if 'mosaic-provider-jobcards' in line][0]
     # job_cards_json = '='.join(job_cards_line.split('=')[1:])[:-1]
-    # open('job_cards.json', 'w').write(job_cards_json)
+    # data = json.loads(job_cards_json)
+    # json.dump(data, open('job_cards.json', 'w'), indent=4)
 
     job_cards = json.load(open('job_cards.json'))
     jobs = job_cards['metaData']['mosaicProviderJobCardsModel']['results']
